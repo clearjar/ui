@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import classNames from "classnames";
 import "./button.css";
 
 export interface ButtonProps {
