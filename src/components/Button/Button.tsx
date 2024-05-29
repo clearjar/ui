@@ -1,47 +1,33 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import cn from 'classnames';
 
-export interface ButtonProps {
-    /**
-     * Is this the principal call to action on the page?
-     */
-    type?: "primary" | "secondary";
-    /**
-     * What background color to use
-     */
-    textColor?: string;
-    /**
-     * How large should the button be?
-     */
-    size?: "small" | "medium" | "large";
-    /**
-     * Button contents
-     */
-    children: ReactNode;
-    /**
-     * Optional click handler
-     */
-    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    disabled?: boolean;
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({
-    type = "primary",
-    textColor,
-    size = "medium",
-    onClick,
     children,
+    className,
+    disabled,
+    ...props
 }: ButtonProps) => {
     return (
         <button
-            type="button"
-            className="bg-primary text-white font-bold py-2 px-4 rounded-md"
-            style={textColor ? { color: textColor } : {}}
-            onClick={onClick}
+            className={cn(
+                "bg-primary text-white font-bold py-2 px-4 rounded-md",
+                {
+                    "opacity-50 cursor-not-allowed": disabled,
+                    "bg-gray-400": disabled
+                },
+                className
+            )}
+            disabled={disabled}
+            {...props}
         >
             {children}
         </button>
     );
 };
-

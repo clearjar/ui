@@ -6,8 +6,8 @@ const meta: Meta<typeof Button> = {
     title: "Components/Button",
     component: Button,
     argTypes: {
-        textColor: { control: "color" },
         onClick: { action: "clicked" },
+        disabled: { control: "boolean" },
     },
 };
 
@@ -19,15 +19,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
     args: {
         children: "Primary 😃",
-        size: "large",
-        type: "primary",
     },
 };
 
-export const Secondary: Story = {
-    args: {
-        ...Primary.args,
-        type: "secondary",
-        children: "Secondary 😇",
-    },
-};
+
