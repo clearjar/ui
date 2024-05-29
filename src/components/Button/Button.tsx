@@ -38,11 +38,7 @@ export const Button = ({
     return (
         <button
             type="button"
-            className={classNames(
-                "storybook-button",
-                `storybook-button--${size}`,
-                `storybook-button--${type}`
-            )}
+            className="bg-primary text-white font-bold py-2 px-4 rounded-md"
             style={textColor ? { color: textColor } : {}}
             onClick={onClick}
         >
