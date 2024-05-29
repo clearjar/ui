@@ -28,7 +28,7 @@ export interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-const Button = ({
+export const Button = ({
     type = "primary",
     textColor,
     size = "medium",
@@ -51,4 +51,3 @@ const Button = ({
     );
 };
 
-export default Button;
