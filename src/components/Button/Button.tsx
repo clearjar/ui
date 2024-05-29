@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import classNames from "classnames";
 import "./button.css";
 
@@ -18,7 +18,7 @@ export interface ButtonProps {
     /**
      * Button contents
      */
-    label: string;
+    children: ReactNode;
     /**
      * Optional click handler
      */
@@ -33,7 +33,7 @@ export const Button = ({
     textColor,
     size = "medium",
     onClick,
-    label,
+    children,
 }: ButtonProps) => {
     return (
         <button
@@ -46,7 +46,7 @@ export const Button = ({
             style={textColor ? { color: textColor } : {}}
             onClick={onClick}
         >
-            {label}
+            {children}
         </button>
     );
 };
