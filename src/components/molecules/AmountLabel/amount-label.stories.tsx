@@ -19,9 +19,10 @@ const meta: Meta<typeof AmountLabel> = {
                 type: 'text'
             }
         },
-        danger: {
+        variant: {
             control: {
-                type: 'boolean'
+                type: 'select',
+                options: ["default", "muted", "danger"]
             }
         }
     }
