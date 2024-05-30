@@ -3,7 +3,7 @@ import { Button } from "./Button";
 
 // Default metadata of the story https://storybook.js.org/docs/react/api/csf#default-export
 const meta: Meta<typeof Button> = {
-    title: "Components/Button",
+    title: "Atoms/Button",
     component: Button,
     argTypes: {
         onClick: { action: "clicked" },

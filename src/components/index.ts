@@ -1,4 +1,3 @@
-export * from './JSONPrinter'
-export * from './Button'
-export * from './Input'
-export * from './Logo'
+export * from './atoms'
+export * from './molecules'
+export * from './organisms'
