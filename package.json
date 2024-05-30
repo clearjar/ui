@@ -1,6 +1,6 @@
 {
   "name": "@clearjar/react-components",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@radix-ui/react-progress": "^1.0.3",
+    "@radix-ui/react-separator": "^1.0.3",
     "add": "^2.0.6",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
