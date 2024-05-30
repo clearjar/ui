@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { getTransactionIcon } from '../../../utils';
 
-const styles = cva("flex items-center justify-center bg-gray-200", {
+const styles = cva("flex items-center justify-center bg-gray-muted", {
     variants: {
         size: {
             small: "w-6 h-6 rounded-md",
@@ -34,10 +34,11 @@ const spanSizeStyles = cva("flex items-center justify-center", {
 
 export interface TransactionIconProps extends VariantProps<typeof styles> {
     imageUrl?: string;
-    category: string;
+    category?: string;
+    icon?: React.ReactNode;
 }
 
-export const TransactionIcon: React.FC<TransactionIconProps> = ({ imageUrl, category, size = "medium" }) => {
+export const TransactionIcon: React.FC<TransactionIconProps> = ({ imageUrl, category, size = "medium", icon }) => {
 
     const transactionIcon = getTransactionIcon(category);
 
@@ -45,6 +46,8 @@ export const TransactionIcon: React.FC<TransactionIconProps> = ({ imageUrl, cate
         <div className={styles({ size })}>
             {imageUrl ? (
                 <img src={imageUrl} alt={category} className={imgSizeStyles({ size })} />
+            ) : icon ? (
+                <span className={spanSizeStyles({ size })}>{icon}</span>
             ) : (
                 <span className={spanSizeStyles({ size })}>{transactionIcon}</span> // Default emoji if category not found
             )}

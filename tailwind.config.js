@@ -7,8 +7,8 @@ export default {
     extend: {
       colors: {
         primary: "#2d4dff",
-        muted: "#64748B",
         gray: {
+          'muted': "#EDECEF",
           "inversed": "#ffffffff",
           "disabled": "#b8bfcaff",
           "quaternary": "#8390a2ff",

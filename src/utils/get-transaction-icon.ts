@@ -1,4 +1,9 @@
-export function getTransactionIcon(category: string) {
+export function getTransactionIcon(category?: string) {
+
+    if (!category) {
+        return "❓";
+    }
+
     category = category.toLowerCase();
 
     switch (category) {

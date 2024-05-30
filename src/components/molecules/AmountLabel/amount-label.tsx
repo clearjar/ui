@@ -7,7 +7,7 @@ export interface AmountLabelProps {
     variant?: TypographyVariants
 }
 
-export const AmountLabel: React.FC<AmountLabelProps> = ({ title, amount, currency = undefined, variant = "default" }) => {
+export const AmountLabel: React.FC<AmountLabelProps> = ({ title, amount, currency = "CAD", variant = "default" }) => {
 
     const AMOUNT = currency ? new Intl.NumberFormat('en-US', { style: 'currency', currency: currency }).format(amount) : amount;
 
