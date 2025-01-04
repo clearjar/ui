@@ -265,7 +265,7 @@ export default {
             },
         },
         fontFamily: {
-        'google-sans': ['GoogleSans', 'sans-serif'],
+        'open-sans': ['Open Sans', 'sans-serif'],
       },
       fontSize: {
         'large-title': ['34px', {
@@ -307,7 +307,7 @@ export default {
       },
       fontWeight: {
         normal: '400',
-        medium: '500',
+        medium: '600',
         bold: '700',
       },
     },

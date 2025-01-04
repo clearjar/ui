@@ -1,4 +1,4 @@
-@import "fonts/font.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -442,6 +442,6 @@
   }
 
   html {
-    font-family: "GoogleSans", sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
 }

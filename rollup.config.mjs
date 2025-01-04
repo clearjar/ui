@@ -1,24 +1,22 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import dts from 'rollup-plugin-dts';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import { readFileSync } from 'fs';
+import dts from 'rollup-plugin-dts';
 import terser from '@rollup/plugin-terser';
-const packageJson = JSON.parse(readFileSync('./package.json', 'utf-8'));
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 export default [
   {
-    input: 'src/index.ts', // Main entry point
+    input: 'src/index.ts',
     output: [
       {
-        file: packageJson.main,
+        file: 'lib/index.js',
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: packageJson.module,
+        file: 'lib/index.esm.js',
         format: 'esm',
         sourcemap: true,
       },
@@ -27,32 +25,20 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ 
-        tsconfig: './tsconfig.json'
-      }),
+      typescript({ tsconfig: './tsconfig.json' }),
       postcss({
-        extract: true,
-        modules: true,
+        extract: 'styles.css',
+        modules: false,
         use: ['sass'],
-        inject: true,
-        minimize: true
+        inject: false,
       }),
       terser(),
     ],
-    external: [
-      'react', 
-      'react-dom',
-    ]
   },
   {
     input: 'src/index.ts',
-    output: [{ file: packageJson.types, format: 'esm' }],
+    output: [{ file: 'lib/index.d.ts', format: 'esm' }],
     plugins: [dts.default()],
-    external: [
-      /\.css$/,
-      /\.scss$/,
-      'react',
-      'react-dom'
-    ]
+    external: [/\.(css|scss|woff2?|ttf)$/],
   },
 ];
