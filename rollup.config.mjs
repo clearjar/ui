@@ -1,44 +1,58 @@
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
-import postcss from "rollup-plugin-postcss";
-import dts from "rollup-plugin-dts";
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import dts from 'rollup-plugin-dts';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
+import { readFileSync } from 'fs';
+import terser from '@rollup/plugin-terser';
+const packageJson = JSON.parse(readFileSync('./package.json', 'utf-8'));
 
-// This is required to read package.json file when
-// using Native ES modules in Node.js
-// https://rollupjs.org/command-line-interface/#importing-package-json
-import { createRequire } from 'node:module';
-const requireFile = createRequire(import.meta.url);
-const packageJson = requireFile('./package.json');
-
-
-export default [{
-    input: "src/index.ts",
+export default [
+  {
+    input: 'src/index.ts', // Main entry point
     output: [
-        {
-            file: packageJson.main,
-            format: "cjs",
-            sourcemap: true
-        },
-        {
-            file: packageJson.module,
-            format: "esm",
-            sourcemap: true
-        }
+      {
+        file: packageJson.main,
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: packageJson.module,
+        format: 'esm',
+        sourcemap: true,
+      },
     ],
     plugins: [
-        peerDepsExternal(),
-        resolve(),
-        commonjs(),
-        typescript(),
-        postcss({
-            extensions: ['.css']
-        })
+      peerDepsExternal(),
+      resolve(),
+      commonjs(),
+      typescript({ 
+        tsconfig: './tsconfig.json'
+      }),
+      postcss({
+        extract: true,
+        modules: true,
+        use: ['sass'],
+        inject: true,
+        minimize: true
+      }),
+      terser(),
+    ],
+    external: [
+      'react', 
+      'react-dom',
     ]
-}, {
-    input: 'lib/index.d.ts',
-    output: [{ file: 'lib/index.d.ts', format: 'es' }],
-    plugins: [dts()],
-    external: [/\.css$/]
-}];
+  },
+  {
+    input: 'src/index.ts',
+    output: [{ file: packageJson.types, format: 'esm' }],
+    plugins: [dts.default()],
+    external: [
+      /\.css$/,
+      /\.scss$/,
+      'react',
+      'react-dom'
+    ]
+  },
+];
