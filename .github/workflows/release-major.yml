@@ -1,32 +1,31 @@
-name: Publish Package to npm
+name: Release Major Version
 
 on:
-  release:
-    types: [created]
-  # Alternatively, you could use:
-  # push:
-  #   branches: [main]
+  workflow_dispatch:
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
-          scope: "@clearjar"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build
-        run: yarn build
+      - name: Configure Git
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
 
-      - name: Publish to npm
-        run: yarn publish --access public
+      - name: Release major version
+        run: yarn release-major
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
