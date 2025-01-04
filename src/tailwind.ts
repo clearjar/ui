@@ -108,6 +108,7 @@ export const colors = {
     700: "var(--colors-alpha-700)",
     800: "var(--colors-alpha-800)",
     900: "var(--colors-alpha-900)",
+    1000: "var(--colors-alpha-1000)",
   },
   rose: {
     50: "var(--colors-rose-50)",

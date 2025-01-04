@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root.dark {
     color-scheme: dark;
     /* color */
     --colors-alpha-00: #ffffff;
@@ -19,6 +19,7 @@
     --colors-alpha-700: #212325;
     --colors-alpha-800: #111315;
     --colors-alpha-900: #0a0b0d;
+    --colors-alpha-1000: #010101;
     --colors-blue-100: #dcebfe;
     --colors-blue-200: #bedbfe;
     --colors-blue-300: #91c3fd;
