@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
+import { ArrowCircleLeft, ArrowCircleRight  } from 'iconsax-react';
+
 
 // Default metadata of the story https://storybook.js.org/docs/react/api/csf#default-export
 const meta: Meta<typeof Button> = {
@@ -30,9 +32,23 @@ export const Primary: Story = {
     args: {
         variant: "primary",
         size: "md",
-        children: "Button"
+        children: (
+            <>
+                <ArrowCircleLeft variant="Bold" />
+                Button
+                <ArrowCircleRight variant="Bold" />
+            </>
+        )
     },
 };
+export const Icon: Story = {
+    args: {
+        variant: "primary",
+        size: "icon",
+        children: <ArrowCircleLeft variant="Bold" />
+    },
+};
+
 
 
 

@@ -307,7 +307,7 @@ export default {
       },
       fontWeight: {
         normal: '400',
-        medium: '600',
+        medium: '500',
         bold: '700',
       },
     },
