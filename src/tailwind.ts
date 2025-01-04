@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
   primary: "var(--colors-blue-500)",
   violet: {
     50: "var(--colors-violet-50)",
