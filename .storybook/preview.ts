@@ -4,6 +4,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 
 
 
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -12,16 +13,19 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    backgrounds: {
+      disable: true,
+    },
   },
 };
 
 export const decorators = [
   withThemeByClassName({
     themes: {
-      light: 'light',
-      dark: 'dark',
+      light: 'light bg-white',
+      dark: 'dark bg-black',
     },
-    defaultTheme: 'light',
+    defaultTheme: 'dark',
   }),
 ];
 

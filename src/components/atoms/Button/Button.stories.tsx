@@ -6,8 +6,18 @@ const meta: Meta<typeof Button> = {
     title: "Atoms/Button",
     component: Button,
     argTypes: {
-        onClick: { action: "clicked" },
+         variant: {
+            control: "select",
+            options: ["primary", "soft", "destructive", "outline", 'link'],
+            description: "The visual style of the button"
+        },
+        size: {
+            control: "select",
+            options: ["sm", "md", "lg", "xl"],
+            description: "The size of the button"
+        },
         disabled: { control: "boolean" },
+        children: { control: "text" },
     },
 };
 
@@ -18,8 +28,11 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
     args: {
-        children: "Primary 😃",
+        variant: "primary",
+        size: "md",
+        children: "Button"
     },
 };
+
 
 

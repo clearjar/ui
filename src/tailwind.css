@@ -1,4 +1,16 @@
+@import "../colors.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-text: var(--colors-colors-alpha-00);
+    color-scheme: dark;
+  }
+
+  :root.light {
+    --color-text: var(--colors-colors-gray-900);
+    color-scheme: light;
+  }
+}
