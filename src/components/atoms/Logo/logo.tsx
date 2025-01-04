@@ -1,4 +1,5 @@
 import { SVGProps } from "react"
+import { colors } from "../../../tailwind"
 
 interface LogoProps extends SVGProps<SVGSVGElement> {
     size?: 'small' | 'medium' | 'large' | 'x-large';
@@ -11,14 +12,14 @@ export const Logo = ({ size = 'medium', color = 'brand', ...props }: LogoProps) 
     let fillColor;
     switch (color) {
         case 'white':
-            fillColor = '#FFFFFF';
+            fillColor = colors.alpha['00'];
             break;
         case 'brand':
-            fillColor = '#2d4dff';
+            fillColor = colors.blue[500];
             break;
         case 'black':
         default:
-            fillColor = '#111315';
+            fillColor = colors.alpha['00'];
     }
 
 
