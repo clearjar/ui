@@ -256,57 +256,84 @@ const colors = {
 };
 
 const fontFamily = {
-    'open-sans': ['Open Sans', 'sans-serif'],
-}
+  "open-sans": ["Open Sans", "sans-serif"],
+};
 
 const fontSize = {
-    'large-title': ['34px', {
-          lineHeight: '1.5',
-          letterSpacing: '-1.5px',
-        }],
-        'title-1': ['28px', {
-          lineHeight: '1.5',
-          letterSpacing: '-0.1px',
-        }],
-        'title-2': ['22px', {
-          lineHeight: '1.5',
-          letterSpacing: '-0.1px',
-        }],
-        'title-3': ['20px', {
-          lineHeight: '1.5',
-          letterSpacing: '-0.1px',
-        }],
-        'body': ['17px', {
-          lineHeight: '1.5',
-          letterSpacing: '-0.1px',
-        }],
-        'callout': ['16px', {
-          lineHeight: '1.31',
-          letterSpacing: '-0.1px',
-        }],
-        'footnote': ['13px', {
-          lineHeight: '1.38',
-          letterSpacing: '-0.1px',
-        }],
-        'caption-1': ['12px', {
-          lineHeight: '1.33',
-          letterSpacing: '-0.1px',
-        }],
-        'caption-2': ['11px', {
-          lineHeight: '1.18',
-          letterSpacing: '-0.1px',
-        }],
-}
+  "large-title": [
+    "34px",
+    {
+      lineHeight: "1.5",
+      letterSpacing: "-1.5px",
+    },
+  ],
+  "title-1": [
+    "28px",
+    {
+      lineHeight: "1.5",
+      letterSpacing: "-0.1px",
+    },
+  ],
+  "title-2": [
+    "22px",
+    {
+      lineHeight: "1.5",
+      letterSpacing: "-0.1px",
+    },
+  ],
+  "title-3": [
+    "20px",
+    {
+      lineHeight: "1.5",
+      letterSpacing: "-0.1px",
+    },
+  ],
+  body: [
+    "17px",
+    {
+      lineHeight: "1.5",
+      letterSpacing: "-0.1px",
+    },
+  ],
+  callout: [
+    "16px",
+    {
+      lineHeight: "1.31",
+      letterSpacing: "-0.1px",
+    },
+  ],
+  footnote: [
+    "13px",
+    {
+      lineHeight: "1.38",
+      letterSpacing: "-0.1px",
+    },
+  ],
+  "caption-1": [
+    "12px",
+    {
+      lineHeight: "1.33",
+      letterSpacing: "-0.1px",
+    },
+  ],
+  "caption-2": [
+    "11px",
+    {
+      lineHeight: "1.18",
+      letterSpacing: "-0.1px",
+    },
+  ],
+};
 
 const fontWeight = {
-    normal: '400',
-    medium: '500',
-    bold: '700',
-}
+  normal: "400",
+  medium: "500",
+  bold: "700",
+};
 
 export const ClearJarTailwindThemeConfig = {
-    colors,
-    fontFamily,
-    fontSize,
-    fontWeight,
-}
+  colors,
+  fontFamily,
+  fontSize,
+  fontWeight,
+};
