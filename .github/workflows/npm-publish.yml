@@ -19,7 +19,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - run: yarn build
-      - run: yarn storybook build
 
   publish-npm:
     needs: build
