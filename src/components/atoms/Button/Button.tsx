@@ -1,20 +1,21 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
-
-import cn from "classnames"
-
+import cn from "classnames";
 
 const buttonVariants = cva(
-  "font-medium text-body inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "font-medium text-footnote inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        primary: "text-gray-900 bg-alpha-00 hover:bg-alpha-200 active:bg-alpha-00 disabled:bg-alpha-400",
+        primary:
+          "text-gray-900 bg-alpha-00 hover:bg-alpha-200 active:bg-alpha-00 disabled:bg-alpha-400",
         soft: "text-alpha-00 bg-alpha-800 hover:bg-alpha-700 active:bg-alpha-800 disabled:bg-alpha-800",
-        destructive: "text-alpha-00 bg-red-600 hover:bg-red-500 active:bg-red-600 disabled:bg-alpha-400",
-        outline: "text-alpha-00 bg-alpha-800 border border-alpha-500 hover:bg-alpha-900 disabled:bg-alpha-700",
+        destructive:
+          "text-alpha-00 bg-red-600 hover:bg-red-500 active:bg-red-600 disabled:bg-alpha-400",
+        outline:
+          "text-alpha-00 bg-alpha-800 border border-alpha-500 hover:bg-alpha-900 disabled:bg-alpha-700",
         link: "text-alpha-00 underline hover:text-alpha-200 active:text-alpha-00 disabled:text-alpha-400",
       },
       size: {
@@ -30,26 +31,26 @@ const buttonVariants = cva(
       size: "md",
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : "button";
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
-Button.displayName = "Button"
+);
+Button.displayName = "Button";
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };
