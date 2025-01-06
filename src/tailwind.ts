@@ -290,14 +290,14 @@ const fontSize = {
     },
   ],
   body: [
-    "17px",
+    "16px",
     {
       lineHeight: "1.5",
       letterSpacing: "-0.1px",
     },
   ],
   callout: [
-    "16px",
+    "14px",
     {
       lineHeight: "1.31",
       letterSpacing: "-0.1px",

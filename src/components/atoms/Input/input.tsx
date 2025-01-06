@@ -69,7 +69,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               },
               "focus:outline-none focus:ring-2 focus:ring-alpha-500 focus:border-transparent",
               "disabled:bg-alpha-800 disabled:border-alpha-500 disabled:cursor-not-allowed disabled:text-alpha-500",
-              "text-footnote text-alpha-00 placeholder:text-alpha-500",
+              "text-body text-alpha-00 placeholder:text-alpha-500",
               LEADING_ICON && "pl-12",
               TRAILING_ICON && "pr-12",
               className
