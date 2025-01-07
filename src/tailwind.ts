@@ -257,7 +257,7 @@ export const colors = {
 };
 
 const fontFamily = {
-  "open-sans": ["Open Sans", "sans-serif"],
+  "open-sans": ["Inter", "sans-serif"],
 };
 
 const fontSize = {
