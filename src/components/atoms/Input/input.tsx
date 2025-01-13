@@ -17,10 +17,18 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     { className, type, hint, error, leadingIcon, trailingIcon, ...props },
     ref
   ) => {
-    const [isFocused, setIsFocused] = React.useState(false);
+    let isFocused = false;
 
     let LEADING_ICON = leadingIcon;
     let TRAILING_ICON = trailingIcon;
+
+    const handleFocus = () => {
+      isFocused = true;
+    };
+
+    const handleBlur = () => {
+      isFocused = false;
+    };
 
     if (leadingIcon) {
       LEADING_ICON = React.cloneElement(leadingIcon, {
@@ -76,8 +84,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             )}
             ref={ref}
             {...props}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
           {TRAILING_ICON && (
             <div

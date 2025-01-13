@@ -1,6 +1,6 @@
 {
   "name": "clearjar-ui",
-  "version": "0.0.24",
+  "version": "0.0.26",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
@@ -28,10 +28,6 @@
     "typescript",
     "clearjar"
   ],
-  "peerDependencies": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
-  },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.4.0",
     "@rollup/plugin-commonjs": "^25.0.8",
@@ -79,7 +75,9 @@
     "classnames": "^2.5.1",
     "iconsax-react": "^0.0.8",
     "tailwind-merge": "^2.3.0",
-    "yarn": "^1.22.22"
+    "yarn": "^1.22.22",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
