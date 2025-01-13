@@ -1,7 +1,7 @@
-import * as React from "react";
 import cn from "classnames";
 import { ReactElement } from "react";
 import { colors } from "../../../tailwind";
+import React from "react";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
