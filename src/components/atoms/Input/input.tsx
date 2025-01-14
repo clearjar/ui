@@ -1,7 +1,7 @@
+import * as React from "react";
 import cn from "classnames";
 import { ReactElement } from "react";
 import { colors } from "../../../tailwind";
-import React from "react";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -17,18 +17,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     { className, type, hint, error, leadingIcon, trailingIcon, ...props },
     ref
   ) => {
-    let isFocused = false;
+    const [isFocused, setIsFocused] = React.useState(false);
 
     let LEADING_ICON = leadingIcon;
     let TRAILING_ICON = trailingIcon;
-
-    const handleFocus = () => {
-      isFocused = true;
-    };
-
-    const handleBlur = () => {
-      isFocused = false;
-    };
 
     if (leadingIcon) {
       LEADING_ICON = React.cloneElement(leadingIcon, {
@@ -51,7 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     }
 
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         <div className="relative">
           {LEADING_ICON && (
             <div
@@ -84,8 +76,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             )}
             ref={ref}
             {...props}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
           />
           {TRAILING_ICON && (
             <div
