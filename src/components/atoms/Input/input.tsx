@@ -1,6 +1,6 @@
 import * as React from "react";
 import cn from "classnames";
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { colors } from "../../../tailwind";
 
 export interface InputProps
@@ -17,7 +17,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     { className, type, hint, error, leadingIcon, trailingIcon, ...props },
     ref
   ) => {
-    const [isFocused, setIsFocused] = React.useState(false);
+    const [isFocused, setIsFocused] = useState(false);
 
     let LEADING_ICON = leadingIcon;
     let TRAILING_ICON = trailingIcon;
