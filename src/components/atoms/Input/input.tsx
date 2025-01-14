@@ -35,10 +35,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     if (trailingIcon) {
       TRAILING_ICON = React.cloneElement(trailingIcon, {
         color: error
-          ? "red"
+          ? colors.rose[500]
           : isFocused
-            ? "var(--color-alpha-00)"
-            : "var(--color-alpha-500)",
+            ? colors.alpha["00"]
+            : colors.alpha[500],
       });
     }
 
