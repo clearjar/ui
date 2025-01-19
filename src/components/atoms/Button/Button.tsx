@@ -42,9 +42,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, loading = false, ...props }, ref) => {
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }), {
-          "animate-pulse pointer-events-none": loading,
-        })}
+        className={cn(
+          buttonVariants({ variant, size }),
+          {
+            "animate-pulse pointer-events-none": loading,
+          },
+          className
+        )}
         ref={ref}
         {...props}
       />
