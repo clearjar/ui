@@ -5,7 +5,7 @@ import { Loader } from "lucide-react";
 import React from "react";
 
 const buttonVariants = cva(
-  "relative font-medium text-body flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "relative font-medium text-body flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-all duration-200 ease-in-out",
   {
     variants: {
       variant: {
@@ -56,13 +56,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {props.children}
-        <span
-          className={cn(
-            "absolute inset-0 flex items-center justify-center opacity-80 rounded-md bg-alpha-800"
-          )}
-        >
-          <Loader className="animate-spin text-alpha-00" />
-        </span>
+        {loading && (
+          <span
+            className={cn(
+              "absolute inset-0 flex items-center justify-center opacity-80 rounded-md bg-alpha-800"
+            )}
+          >
+            <Loader className="animate-spin text-alpha-00" />
+          </span>
+        )}
       </button>
     );
   }
