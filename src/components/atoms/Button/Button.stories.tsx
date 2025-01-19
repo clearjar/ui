@@ -45,6 +45,12 @@ export const Icon: Story = {
   args: {
     variant: "primary",
     size: "icon",
-    children: <ArrowCircleLeft variant="Bold" />,
+    className: "w-full justify-start",
+    children: (
+      <>
+        <ArrowCircleLeft variant="Bold" color="red" />
+        Tesitng
+      </>
+    ),
   },
 };
